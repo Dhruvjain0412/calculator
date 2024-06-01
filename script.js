@@ -1,30 +1,40 @@
+// Naming
+var equation = ""
+// resetOutput
+function resetOutput() {
+    document.querySelector(".output").textContent = "0";
+    equation = ""
+}
+document.querySelector(".reset").addEventListener("click", resetOutput);
 
-var result = document.querySelector(".output").textContent
+// Using Number in Output 
 
-
-
-
-$(document).ready(function () {
-    $(".clear").click(function () {
-        $(".output").text("Output");
-    });
-
-    $(".direct").click(function () {
-        var result = $(".output").text();
-        var clickedNumber = $(this).text();
-        if (result === "Output") {
-            result = "";
-        }
-
-        result += clickedNumber;
-
-        $(".output").text(result);
-    });
-
-    $(".solve").click(function () {
-        var equation = $(".output").text();
-        var answer = eval(equation);
-        $(".output").text(answer);
+document.querySelectorAll(".direct").forEach(function (button) {
+    button.addEventListener("click", function () {
+        var clickedNumber = this.textContent;
+        input(clickedNumber)
     });
 });
 
+function input(inputValue) {
+    equation += inputValue
+    document.querySelector(".output").textContent = equation;
+}
+
+document.addEventListener("keydown", (key) => {
+    const keyInput = key.key
+    if ((keyInput >= 0 && keyInput <= 9) || keyInput === '+' || keyInput === '-' || keyInput === '*' || keyInput === '/') {
+        input(keyInput)
+    }
+    else if (keyInput === "Enter") {
+        solveEquation()
+    }
+});
+
+// Solving the Output 
+function solveEquation() {
+    var answer = eval(equation);
+    equation = ""
+    document.querySelector(".output").textContent = answer;
+}
+document.querySelector(".solve").addEventListener("click", solveEquation)
