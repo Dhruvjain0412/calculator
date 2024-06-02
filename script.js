@@ -10,11 +10,23 @@ document.querySelector(".reset").addEventListener("click", resetOutput);
 document.querySelectorAll(".direct").forEach(function (button) {
     button.addEventListener("click", function () {
         var clickedNumber = this.textContent;
-        input(clickedNumber)
+        input(clickedNumber);
     });
 });
 function input(inputValue) {
-    equation += inputValue
+    const checkOperator = '/*+'
+    const lastChar = equation[equation.length - 1];
+
+    if (checkOperator.includes(inputValue)) {
+        if (checkOperator.includes(lastChar)) {
+            equation = equation.slice(0, equation.length - 1);
+        }
+    } else if (inputValue === "-") {
+        if (lastChar === "-") {
+            return;
+        }
+    }
+    equation += inputValue;
     document.querySelector(".output").textContent = equation;
 }
 document.addEventListener("keydown", (key) => {
