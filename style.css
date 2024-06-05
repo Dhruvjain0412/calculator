@@ -1,48 +1,118 @@
+body {
+    background: linear-gradient(to bottom right, #4B0082, #000033);
+    overflow: hidden;
+}
+
 .container {
     text-align: center;
     width: 100%;
+    height: 100vh;
 }
+
 .title {
-    color: black;
+    font-size: 50px;
+    color: #32CD32;
+    /* Lime Green */
+
 }
+
 .calculator {
-    width: 50%;
+    width: 40%;
     text-align: center;
     display: inline-block;
+    border-radius: 2%;
+    overflow: hidden
 }
-.output-table{
-    background-color: purple;
+
+.output-table {
+    background-color: #5AC8FA;
     border-radius: 20px;
+
 }
-.output{
+
+.output {
     text-align: right;
     padding-right: 5%;
+    color: (#333333);
+
 }
-.keypad-table{
+
+.keypad-table {
     border-radius: 20px;
 }
+
 .box {
     background-color: #205b7a;
     color: #a2bbcf;
 }
-.box td{
+
+.box td {
     border-radius: 20px;
 }
+
 table {
     width: 100%;
     margin-bottom: 10px;
 }
 
 td {
-    width: 120px;
-    height: 100px;
+    width: 100px;
+    height: 70px;
     text-align: center;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
 }
+
 .reset {
     background-color: #142F44;
     color: #a2bbcf;
 
+}
+
+.delete {
+    background-color: #D32F2F;
+    color: #FFFFFF;
+}
+
+#addition {
+    background-color: #FF9500;
+}
+
+#subtraction {
+    background-color: #FF453A;
+}
+
+#multiplication {
+    background-color: #4CD964;
+}
+
+#division {
+    background-color: #5856D6;
+}
+
+.direct {
+    color: #FFFFFF;
+}
+
+.solve {
+    background-color: #FF2D55;
+    color: #FFFFFF;
+}
+
+.reset {
+    background-color: #4CAF50;
+    color: white;
+}
+
+@media(max-width:768px) {
+    .calculator {
+        width: 70%;
+    }
+}
+
+@media(max-width: 480px) {
+    .calculator {
+        width: 69%;
+    }
 }
